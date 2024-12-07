@@ -1,6 +1,7 @@
 package com.johann.baixoqi_api.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -14,14 +15,17 @@ public class  Projeto implements Serializable {
     private String id;
     private String nome;
 
+    @DBRef(lazy = true)
+    private Responsavel responsavel;
 
     public Projeto() {
 
     }
 
-    public Projeto(String id, String nome) {
+    public Projeto(String id, String nome, Responsavel responsavel) {
         this.id = id;
         this.nome = nome;
+        this.responsavel = responsavel;
     }
 
     public String getId() {
@@ -40,6 +44,13 @@ public class  Projeto implements Serializable {
         this.nome = nome;
     }
 
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
+    }
 
     @Override
     public boolean equals(Object o) {

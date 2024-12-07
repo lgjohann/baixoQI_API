@@ -30,7 +30,7 @@ public class ProjetoService {
     }
 
     public Projeto fromDTO(ProjetoDTO objDto) {
-        return new Projeto(objDto.getId(), objDto.getNome());
+        return new Projeto(objDto.getId(), objDto.getNome(), objDto.getResponsavel());
     }
 
     public void delete(String id) {
