@@ -19,9 +19,9 @@ public class Instantiation implements CommandLineRunner {
 
         repo.deleteAll();
 
-        Projeto projeto1 = new Projeto(null, "projeto qualquer coisa", "05444312000109", "edificacao", "luis pastorio");
-        Projeto projeto2 = new Projeto(null, "projeto mais qualquer coisa ainda", "32133123000105", "edificacao", "luis pastorio");
-        Projeto projeto3 = new Projeto(null, "projeto nem se fala", "03232234000102", "edificacao", "luis pastorio");
+        Projeto projeto1 = new Projeto(null, "projeto qualquer coisa");
+        Projeto projeto2 = new Projeto(null, "projeto mais qualquer coisa ainda");
+        Projeto projeto3 = new Projeto(null, "projeto cigarro nas escolas");
 
         repo.saveAll(Arrays.asList(projeto1, projeto2, projeto3));
 

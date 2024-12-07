@@ -7,27 +7,21 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Document
-public class Projeto implements Serializable {
+public class  Projeto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     private String id;
     private String nome;
-    private String cnpj; // isso aqui vai ser o ID_empresa?
-    private String edificacao; // aqui a id_edificacao
-    private String responsavel; // id_responsavel
-//  private List<medidasProtecao> = new ArrayListM<>();
+
 
     public Projeto() {
 
     }
 
-    public Projeto(String id, String nome, String cnpj, String edificacao, String responsavel) {
+    public Projeto(String id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.cnpj = cnpj;
-        this.edificacao = edificacao;
-        this.responsavel = responsavel;
     }
 
     public String getId() {
@@ -46,29 +40,6 @@ public class Projeto implements Serializable {
         this.nome = nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getEdificacao() {
-        return edificacao;
-    }
-
-    public void setEdificacao(String edificacao) {
-        this.edificacao = edificacao;
-    }
-
-    public String getResponsavel() {
-        return responsavel;
-    }
-
-    public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
-    }
 
     @Override
     public boolean equals(Object o) {
