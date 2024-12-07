@@ -37,4 +37,15 @@ public class ProjetoService {
         findById(id);
         repo.deleteById(id);
     }
+
+    public Projeto update(Projeto obj) {
+        Projeto newObj = findById(obj.getId());
+        updateData(newObj, obj);
+        return repo.save(newObj);
+    }
+
+    // aqui tem que ver depois o que a gente vai deixar alterar no projeto, se deixarmos alterar
+    public void updateData(Projeto newObj, Projeto oldObj) {
+        newObj.setNome(oldObj.getNome());
+    }
 }
