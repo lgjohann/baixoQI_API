@@ -32,4 +32,9 @@ public class ProjetoService {
     public Projeto fromDTO(ProjetoDTO objDto) {
         return new Projeto(objDto.getId(), objDto.getNome());
     }
+
+    public void delete(String id) {
+        findById(id);
+        repo.deleteById(id);
+    }
 }
