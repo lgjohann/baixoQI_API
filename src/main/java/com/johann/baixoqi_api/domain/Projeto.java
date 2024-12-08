@@ -18,14 +18,20 @@ public class  Projeto implements Serializable {
     @DBRef(lazy = true)
     private Responsavel responsavel;
 
+    private Empresa empresa;
+
+    private Edificacao edificacao;
+
     public Projeto() {
 
     }
 
-    public Projeto(String id, String nome, Responsavel responsavel) {
+    public Projeto(String id, String nome, Responsavel responsavel, Empresa empresa, Edificacao edificacao) {
         this.id = id;
         this.nome = nome;
         this.responsavel = responsavel;
+        this.empresa = empresa;
+        this.edificacao = edificacao;
     }
 
     public String getId() {
@@ -50,6 +56,22 @@ public class  Projeto implements Serializable {
 
     public void setResponsavel(Responsavel responsavel) {
         this.responsavel = responsavel;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public Edificacao getEdificacao() {
+        return edificacao;
+    }
+
+    public void setEdificacao(Edificacao edificacao) {
+        this.edificacao = edificacao;
     }
 
     @Override
