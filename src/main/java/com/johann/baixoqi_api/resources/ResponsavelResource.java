@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "${cross.origin}")
+
 @RestController
 @RequestMapping(value = "/responsaveis")
 public class ResponsavelResource {
