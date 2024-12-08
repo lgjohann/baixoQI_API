@@ -1,5 +1,6 @@
 package com.johann.baixoqi_api.resources;
 
+import com.johann.baixoqi_api.domain.Projeto;
 import com.johann.baixoqi_api.domain.Responsavel;
 import com.johann.baixoqi_api.dto.ProjetoDTO;
 import com.johann.baixoqi_api.dto.ResponsavelDTO;
@@ -25,13 +26,6 @@ public class ResponsavelResource {
     public ResponseEntity<List<ResponsavelDTO>>  findAll() {
         List<Responsavel> lista = service.findAll();
         List<ResponsavelDTO> listaDTO = lista.stream().map(x -> new ResponsavelDTO(x)).collect(Collectors.toList());
-
-//        for (ResponsavelDTO responsavelDTO : listaDTO) {
-//            for (Responsavel responsavel : lista) {
-//                obj.getProjetos().stream().map(projeto -> responsavelDto.getProjetos().add(new ProjetoDTO(projeto))).collect(Collectors.toList());
-//            }
-//        }
-
         return ResponseEntity.ok().body(listaDTO);
     }
 
@@ -39,8 +33,15 @@ public class ResponsavelResource {
     public ResponseEntity<ResponsavelDTO> findById(@PathVariable String id) {
         Responsavel obj = service.findById(id);
         ResponsavelDTO responsavelDto = new ResponsavelDTO(obj);
-        obj.getProjetos().stream().map(projeto -> responsavelDto.getProjetos().add(new ProjetoDTO(projeto))).collect(Collectors.toList());
         return ResponseEntity.ok().body(responsavelDto);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Void> insert(@RequestBody ResponsavelDTO objDto) {
+        Responsavel obj = service.fromDTO(objDto);
+        obj = service.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
 }

@@ -47,14 +47,16 @@ public class Instantiation implements CommandLineRunner {
         List<CNAE> listaTesteCnae = new ArrayList<>();
         listaTesteCnae.add(cnaeTeste);
 
-        Empresa emp = new Empresa("12123321000100", "empresaTeste", listaTesteCnae, "C2", 650, "rua 21 de abril", "23", "centro", null, "98400-000", "frederico-westphalen", "rs");
+        Empresa emp = new Empresa("12123321000100", "EnxadaBet", listaTesteCnae, "C2", 650, "rua 21 de abril", "23", "centro", null, "98400-000", "frederico-westphalen", "rs");
+        Empresa emp1 = new Empresa("12123321000100", "365Fretes", listaTesteCnae, "C2", 650, "rua 21 de abril", "23", "centro", null, "98400-000", "frederico-westphalen", "rs");
+        Empresa emp2 = new Empresa("12123321000100", "jogo do Tijolinho", listaTesteCnae, "C2", 650, "rua 21 de abril", "23", "centro", null, "98400-000", "frederico-westphalen", "rs");
 
         Edificacao ed1 = new Edificacao();
         edificacaoRepo.save(ed1);
 
         Projeto projeto1 = new Projeto(null, "projeto qualquer coisa", responsavel, emp, ed1);
-        Projeto projeto2 = new Projeto(null, "projeto mais qualquer coisa ainda", responsavel, emp, ed1);
-        Projeto projeto3 = new Projeto(null, "projeto cigarro nas escolas", responsavel, emp, ed1);
+        Projeto projeto2 = new Projeto(null, "projeto mais qualquer coisa ainda", responsavel, emp1, ed1);
+        Projeto projeto3 = new Projeto(null, "projeto cigarro nas escolas", responsavel, emp2, ed1);
 
         projetoRepo.saveAll(Arrays.asList(projeto1, projeto2, projeto3));
         responsavel.getProjetos().addAll(Arrays.asList(projeto1, projeto2, projeto3));

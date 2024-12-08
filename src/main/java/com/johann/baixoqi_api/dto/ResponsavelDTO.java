@@ -7,6 +7,7 @@ import com.johann.baixoqi_api.domain.Responsavel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ResponsavelDTO {
 
@@ -29,6 +30,8 @@ public class ResponsavelDTO {
         this.cpf = obj.getCpf();
         this.numCREA = obj.getNumCREA();
         this.email = obj.getEmail();
+
+        obj.getProjetos().stream().map(projeto -> this.getProjetos().add(new ProjetoDTO(projeto))).collect(Collectors.toList());
     }
 
     public String getId() {

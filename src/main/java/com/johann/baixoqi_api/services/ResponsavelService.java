@@ -1,5 +1,6 @@
 package com.johann.baixoqi_api.services;
 
+import com.johann.baixoqi_api.domain.Projeto;
 import com.johann.baixoqi_api.domain.Responsavel;
 import com.johann.baixoqi_api.domain.Responsavel;
 import com.johann.baixoqi_api.dto.ResponsavelDTO;
@@ -24,6 +25,10 @@ public class ResponsavelService {
     public Responsavel findById(String id) {
         Optional<Responsavel> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public Responsavel insert(Responsavel obj) {
+        return repo.insert(obj);
     }
 
     public Responsavel fromDTO(ResponsavelDTO objDto) {
