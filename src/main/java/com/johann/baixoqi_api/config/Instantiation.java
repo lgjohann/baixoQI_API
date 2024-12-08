@@ -1,6 +1,7 @@
 package com.johann.baixoqi_api.config;
 
 import com.johann.baixoqi_api.domain.*;
+import com.johann.baixoqi_api.dto.ProjetoDTO;
 import com.johann.baixoqi_api.repository.CNAERepository;
 import com.johann.baixoqi_api.repository.EdificacaoRepository;
 import com.johann.baixoqi_api.repository.ProjetoRepository;
@@ -55,6 +56,9 @@ public class Instantiation implements CommandLineRunner {
         Projeto projeto2 = new Projeto(null, "projeto mais qualquer coisa ainda", responsavel, emp, ed1);
         Projeto projeto3 = new Projeto(null, "projeto cigarro nas escolas", responsavel, emp, ed1);
 
+        projetoRepo.saveAll(Arrays.asList(projeto1, projeto2, projeto3));
+        responsavel.getProjetos().addAll(Arrays.asList(projeto1, projeto2, projeto3));
+        responsavelRepo.save(responsavel);
         projetoRepo.saveAll(Arrays.asList(projeto1, projeto2, projeto3));
 
     }

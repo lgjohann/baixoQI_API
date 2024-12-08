@@ -1,13 +1,16 @@
 package com.johann.baixoqi_api.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.johann.baixoqi_api.dto.ProjetoDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
-@Document
+@Document(collection="projetos")
 public class  Projeto implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -50,6 +53,7 @@ public class  Projeto implements Serializable {
         this.nome = nome;
     }
 
+    @JsonIgnore
     public Responsavel getResponsavel() {
         return responsavel;
     }

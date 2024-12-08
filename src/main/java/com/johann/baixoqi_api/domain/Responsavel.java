@@ -1,8 +1,10 @@
 package com.johann.baixoqi_api.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.johann.baixoqi_api.dto.ProjetoDTO;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -22,7 +24,8 @@ public class Responsavel implements Serializable {
     private String numCREA;
     private String email;
 
-    private List<ProjetoDTO> projetos = new ArrayList<>();
+    @DBRef
+    private List<Projeto> projetos = new ArrayList<>();
 
     public Responsavel(){}
 
@@ -74,7 +77,7 @@ public class Responsavel implements Serializable {
         this.email = email;
     }
 
-    public List<ProjetoDTO> getProjetos() {
+    public List<Projeto> getProjetos() {
         return projetos;
     }
 
